@@ -1,5 +1,6 @@
 
 const canvas = document.getElementById('js-canvas');
+const color = document.getElementsByClassName('jsColor');
 const ctx = canvas.getContext("2d");
 let painting = false;
 
@@ -26,12 +27,6 @@ function onMouseMove(event){
 }
 
 
-//마우스 클릭후 유지
-function onMouseDown(event){
-    painting = true;
-}
-
-
 //페인팅 불값
 function startPainting(){
     painting = true;
@@ -40,6 +35,16 @@ function startPainting(){
 function stopMouseLeave(event){
     painting = false;
 }
+
+//html에서 색상 뽑아내기
+function handleColorClick(event){
+    const color = event.target.style.backgroundColor;
+    ctx.strokeStyle = color;
+}
+
+Array.from(color).forEach(colors => 
+    colors.addEventListener("click", handleColorClick)
+);
 
 if(canvas){
     canvas.addEventListener("mousemove", onMouseMove);
