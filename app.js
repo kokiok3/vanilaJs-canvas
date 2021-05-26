@@ -96,9 +96,9 @@ function handlemode(){
     if(filling === true){   //fill
         filling = false;
         modeBtn.innerText = "fill";
-    }else{                  //paint
+    }else{                  //brush
         filling = true;
-        modeBtn.innerText = "paint";
+        modeBtn.innerText = "brush";
     }
     
 }
